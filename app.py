@@ -24,7 +24,7 @@ from together import Together # IMPORT TOGETHER API
 from geopy.geocoders import Nominatim # Import Nominatim geocoder
 
 # Initialize Together client # CHANGE CLIENT INITIALIZATION
-client = Together(api_key="87954ab2159fc36e7b13b6dfcaf79228e8ad99e75e7cc0026452aa451ed6ab4c") # Replace "YOUR_TOGETHER_API_KEY" with your actual Together API key
+client = Together(api_key="your-api here") # Replace "YOUR_TOGETHER_API_KEY" with your actual Together API key
 
 # Initialize Nominatim geocoder
 geolocator = Nominatim(user_agent="travel_itinerary_app") # Replace "travel_itinerary_app" with a descriptive user agent
