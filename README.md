@@ -1,5 +1,17 @@
 # AI Travel Planner v7
 
+
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Streamlit-1.35.0-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit" />
+  <img src="https://img.shields.io/badge/OpenAI-1.30.0-412991?logo=openai&logoColor=white" alt="OpenAI" />
+  <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/License-MIT-black" alt="License" />
+  <img src="https://visitor-badge.glitch.me/badge?page_id=yourusername.ai-travel-planner" alt="visitors" />
+</p>
+
+
+
 > **Plan smarter trips in seconds – from flights to food, fully costed and explained.**
 
 ---
