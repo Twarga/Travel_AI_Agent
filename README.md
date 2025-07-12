@@ -1,45 +1,12 @@
 # AI Travel Planner v7
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Streamlit-1.35.0-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit" />
-  <img src="https://img.shields.io/badge/OpenAI-1.30.0-412991?logo=openai&logoColor=white" alt="OpenAI" />
-  <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/License-MIT-black" alt="License" />
-  <img src="https://visitor-badge.glitch.me/badge?page_id=yourusername.ai-travel-planner" alt="visitors" />
-</p>
-
-
 > **Plan smarter trips in seconds – from flights to food, fully costed and explained.**
 
 ---
 
 ## 🎬 Demo / Live Preview
 
-<p align="center">
-  <!-- Replace the thumbnail & link with your real demo -->
-  <a href="https://youtu.be/your-demo-video" target="_blank">
-    <img src="https://img.youtube.com/vi/your-demo-video/mqdefault.jpg" alt="Watch the demo" width="640" />
-  </a>
-</p>
-
 ---
-
-<!-- Core badges -->
-
-<!-- Tech‑stack badges (clickable) -->
-
-<p align="center">
-  <a href="https://www.python.org"><img src="https://img.shields.io/badge/Python-Interpreter-blue?logo=python&logoColor=white" alt="Python" /></a>
-  <a href="https://docs.streamlit.io"><img src="https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit" /></a>
-  <a href="https://platform.openai.com"><img src="https://img.shields.io/badge/OpenAI-LLM-412991?logo=openai&logoColor=white" alt="OpenAI" /></a>
-  <a href="https://www.python-httpx.org"><img src="https://img.shields.io/badge/HTTPX-Client-70A4FC?logo=httpx&logoColor=white" alt="HTTPX" /></a>
-  <a href="https://www.crummy.com/software/BeautifulSoup/"><img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-yellow?logo=beautifulsoup&logoColor=black" alt="BeautifulSoup" /></a>
-  <a href="https://duckduckgo.com"><img src="https://img.shields.io/badge/DuckDuckGo-Search-orange?logo=duckduckgo&logoColor=white" alt="DuckDuckGo" /></a>
-  <a href="https://pypi.org/project/diskcache/"><img src="https://img.shields.io/badge/DiskCache-Caching-red?logo=databricks&logoColor=white" alt="DiskCache" /></a>
-  <a href="https://geopy.readthedocs.io"><img src="https://img.shields.io/badge/Geopy-Geocoding-blueviolet?logo=mapbox&logoColor=white" alt="Geopy" /></a>
-  <a href="https://plotly.com/python/"><img src="https://img.shields.io/badge/Plotly-Charts-purple?logo=plotly&logoColor=white" alt="Plotly" /></a>
-  <a href="https://www.docker.com"><img src="https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white" alt="Docker" /></a>
-</p>
 
 ---
 
@@ -81,10 +48,6 @@ streamlit run app.py
 3. **Model** – choose speed vs. depth.
 4. **Generate** – get your plan with costs, maps, & tips.
 5. **Export** – JSON/Text or just bookmark it.
-
-<p align="center">
-  <img src="docs/screenshot.png" width="700" alt="App screenshot" />
-</p>
 
 ---
 
