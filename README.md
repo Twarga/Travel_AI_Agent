@@ -1,157 +1,121 @@
-# ✈️ AI Travel Planner v7 Enhanced
+# AI Travel Planner v7
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-ff4b4b?logo=streamlit)
-![License: MIT](https://img.shields.io/badge/license-MIT-green)
-![CI](https://img.shields.io/github/actions/workflow/status/your‑username/ai‑travel‑planner/ci.yml?label=tests)
-
-An **AI‑powered end‑to‑end travel‑planning web app** that turns a few clicks into a fully costed, day‑by‑day itinerary—complete with booking links, maps, pro tips and budget analytics.
-
-> Built with **Streamlit**, **OpenAI function‑calling**, real‑time **web scraping**, and a **modern component‑driven UI**. Designed for resume portfolios and production deployment.
+An advanced AI-powered travel planning application built with Streamlit, designed to generate comprehensive, personalized travel itineraries with rich details, budget analysis, and modern UI features.
 
 ---
 
-\## 🚀 Live Demo 
+## Features
 
-<!--
-Replace `VIDEO_URL` with the final link.
-YouTube automatically generates thumbnails; `maxresdefault` ensures crisp preview.
--->
-
-[![AI Travel Planner Demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](VIDEO_URL)
-
-*Coming soon – short video walkthrough of the main flow.*
-
----
-
-\## ✨ Key Features
-
-| Area                                                   | Highlights                                                |
-| ------------------------------------------------------ | --------------------------------------------------------- |
-| **AI Engine**                                          | • GPT‑4o (or GPT‑4o‑mini) via OpenAI **function calling** |
-| • Custom system prompt forces **valid JSON schema**    |                                                           |
-| • Up to 8 iterative tool‑call rounds for deep research |                                                           |
-| **Research Tools**                                     | • Brave & DuckDuckGo search APIs                          |
-| • Async HTTP + **BeautifulSoup** scraping              |                                                           |
-| • Geographic autocomplete with **geopy/Nominatim**     |                                                           |
-| **Modern UI**                                          | • Streamlit tabs, expanders, columns & metrics            |
-| • Interactive **Plotly** charts                        |                                                           |
-| • Responsive CSS gradients & cards                     |                                                           |
-| **Data Layer**                                         | • Disk‑based **LRU cache** (2 GB) for API & scrape data   |
-| • Pydantic‑style JSON validation during generation     |                                                           |
-| **User Value**                                         | • Day‑level costs, budget status, savings tips            |
-| • Rainy‑day, budget and luxury alternatives            |                                                           |
-| • One‑click JSON/Text exports                          |                                                           |
-| **Dev Experience**                                     | • 100% type‑hinted, Black‑formatted                       |
-| • Docker‑ready & CI‑friendly                           |                                                           |
-| • MIT‑licensed                                         |                                                           |
+- **Structured JSON Output**: Generates detailed itineraries in a structured JSON format for easy parsing and integration.
+- **Modern User Interface**: Interactive UI with tabs, expanders, columns, and metrics for a rich user experience.
+- **Real-Time Web Search & Scraping**: Integrates real-time web search and webpage scraping to provide up-to-date travel information.
+- **Budget Analysis**: Provides realistic cost breakdowns including accommodation, food, activities, transportation, and miscellaneous expenses.
+- **Pro Tips & Justifications**: Includes actionable traveler tips and explanations for each recommendation.
+- **Multiple Export Formats**: Export itineraries as JSON or readable text files.
+- **Save Favorite Destinations**: Quickly save and select favorite destinations for faster itinerary generation.
+- **Flexible AI Model Selection**: Choose between fast and capable AI models for itinerary generation.
 
 ---
 
-\## 🖼️ Screenshots
+## Getting Started
 
-<p align="center">
-  <img src="docs/assets/landing_page.png" width="45%" />
-  <img src="docs/assets/itinerary_tabs.gif"   width="45%" />
-</p>
+### Prerequisites
 
-> More high‑resolution screenshots in **`/docs/assets`**.
+- Python 3.8 or higher
+- API keys for OpenAI and optionally Brave Search (for enhanced search results)
 
----
+### Installation
 
-\## 🛠 Tech Stack & Architecture
+1. Clone the repository or download the `app.py` file.
 
-```mermaid
-flowchart TD
-  UI[Streamlit UI] -->|User query| Backend[Async Planner]
-  subgraph Planner
-    A(OpenAI Chat Completion) --> B{Tool Call?}
-    B -->|Search| S[web_search()]
-    B -->|Scrape| C[scrape()]
-    S --> A
-    C --> A
-  end
-  Backend --> Cache[(diskcache)]
-  Backend --> Plotly
+2. Create a `requirements.txt` file with the following dependencies:
+
+```
+streamlit>=1.35.0
+openai>=1.30.0
+httpx>=0.27.0
+beautifulsoup4>=4.12.3
+ddgs>=6.1.4
+diskcache>=5.6.3
+geopy>=2.4.1
+plotly>=5.17.0
 ```
 
-*Async‑driven architecture keeps the UI snappy—even while the AI quietly performs multiple search & scrape rounds in the background.*
-
----
-
-\## ⚡ Quick Start
+3. Install the dependencies:
 
 ```bash
-# 1. Clone
-$ git clone https://github.com/your‑username/ai‑travel‑planner.git
-$ cd ai‑travel‑planner
-
-# 2. Create virtual env & install deps
-$ python -m venv .venv && source .venv/bin/activate
-$ pip install -r requirements.txt
-
-# 3. Add API keys
-$ mkdir -p .streamlit && nano .streamlit/secrets.toml
-# → paste:
-#  OPENAI_API_KEY = "sk‑..."
-#  BRAVE_API_KEY  = "..."  # optional but improves search
-
-# 4. Run
-$ streamlit run app.py
+pip install -r requirements.txt
 ```
 
-\#### Docker (optional)
+4. Create a `.streamlit/secrets.toml` file in your project directory and add your API keys:
+
+```toml
+OPENAI_API_KEY = "your_openai_api_key_here"
+# Optional but recommended for better search results
+BRAVE_API_KEY = "your_brave_api_key_here"
+```
+
+### Running the App
+
+Run the Streamlit app from your terminal:
 
 ```bash
-$ docker build -t travel‑planner .
-$ docker run -p 8501:8501 -e OPENAI_API_KEY=sk‑... travel‑planner
+streamlit run app.py
 ```
 
 ---
 
-\## 📂 Project Structure
+## Usage
 
-```
-.
-├── app.py                  # ← main Streamlit entry‑point
-├── utils/                  # helper modules (search, scrape, cache, geo)
-├── requirements.txt
-├── docs/
-│   └── assets/             # screenshots & GIFs
-└── tests/                  # unit tests & stubbed API responses
-```
+- Enter your origin and destination cities with helpful location suggestions.
+- Select trip dates, budget, interests, and trip pace.
+- Choose the AI model for itinerary generation.
+- Generate a personalized travel itinerary with detailed daily plans, budget analysis, essential info, and alternative options.
+- Save favorite destinations for quick access in future sessions.
+- Export your itinerary as JSON or text files.
 
 ---
 
-\## 🧑‍💻 For Your Resume
+## Project Structure
 
-* **Architected** a full‑stack AI application leveraging OpenAI function calling and asynchronous Python to deliver <2 s median response times for cached queries.
-* **Implemented** end‑to‑end JSON schema validation enforcing >99.9% valid itineraries.
-* **Optimised** web scraping pipeline with DiskCache, reducing redundant HTTP requests by 70%.
-* **Designed** a modern, mobile‑responsive Streamlit UI featuring interactive Plotly graphs and real‑time progress feedback.
-
-Feel free to copy‑paste (and tweak) the above bullets into your CV / LinkedIn.
+- `app.py`: Main application file containing UI, AI integration, and business logic.
+- `.streamlit/secrets.toml`: Configuration file for API keys (not included in repo).
+- `requirements.txt`: Python dependencies.
 
 ---
 
-\## 🤝 Contributing
+## Technologies Used
 
-1. Fork the repo & create your branch: `git checkout ‑b feature/<name>`
-2. Run `pre‑commit install` (Black + isort).
-3. Submit a **small, focused pull request** with clear description.
-
-Good first issues are tagged ***help‑wanted***.
-
----
-
-\## 📜 License
-
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+- Python 3.8+
+- Streamlit for UI
+- OpenAI API for AI-powered itinerary generation
+- HTTPX and BeautifulSoup for web scraping
+- DiskCache for caching
+- Geopy for geolocation services
+- Plotly for interactive charts
+- DuckDuckGo and Brave Search APIs for web search
 
 ---
 
-\## 📫 Contact
+## Future Improvements
 
-Younes “TwarGa” Touzani • [@twarga\_dev](https://twitter.com/twarga_dev) • [youness.touzani.03@gmail.com](mailto:youness.touzani.03@gmail.com)
+- Add weather forecast integration for trip dates.
+- Implement packing checklist generator based on destination and weather.
+- Include local events and currency converter widgets.
+- Enhance UI with user authentication and persistent storage.
 
-If this project helped you, please ⭐ star the repo – it motivates me to keep improving it!
+---
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
+
+## Contact
+
+For questions or contributions, please contact [Your Name] at [your.email@example.com].
+
+---
+
+*This project showcases advanced AI integration and modern UI design, making it an excellent portfolio piece for job and university applications.*
